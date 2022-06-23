@@ -89,9 +89,6 @@ class MoCoDataset_splitfile(torch.utils.data.Dataset):
         return len(self.path)
 
 def split_and_load(file, shuffle_ratio, split_now, split_savedir = "./Fugue/Data/example_splitfile/"):
-    data = np.load(file)
-    expr = data['x']
-    batch_label = data['y']
     print("Split data into min-batch and load a few batches of data into memory for each iteration.")
     
     assert split_savedir != None
@@ -101,6 +98,10 @@ def split_and_load(file, shuffle_ratio, split_now, split_savedir = "./Fugue/Data
         print("Spliting file ...")
     print("split_now", split_now)
     if split_now == True:
+        data = np.load(file)
+        expr = data['x']
+        batch_label = data['y']
+    
         # devide each of 32 cells into a file
         np_indexes = []
         np_index = np.arange(len(expr))
