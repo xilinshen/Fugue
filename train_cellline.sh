@@ -1,5 +1,5 @@
 python main.py \
---file "/media/storage1/database/HCA/collected/Cellline/cellline_log_hvgs.npz" \
+--file "./data/splatter_simulation.npz" \
 --arch densenet21 \
 --batch-size 32 \
 --dist-url "tcp://localhost:10006" \
@@ -12,5 +12,5 @@ python main.py \
 --epochs 100 \
 --multiprocessing-distributed \
 #--load-split-file \
-#--split-savedir "./lung_scaled_allgenes/" \
+#--split-savedir "./tmp/" \
 #--split-now 
